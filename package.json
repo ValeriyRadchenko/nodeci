@@ -4,19 +4,37 @@
   "description": "Continuous integration NodeJS server",
   "main": "index.js",
   "scripts": {
+    "start": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsc --project ./server",
     "server": "npm run build && node ./server/dist/index.js"
   },
   "author": "Valerii Radchenko",
   "license": "ISC",
   "dependencies": {
+    "compression-webpack-plugin": "^0.4.0",
+    "css-loader": "^0.28.2",
+    "html-webpack-plugin": "^2.28.0",
     "koa": "^2.2.0",
-    "normalize-port": "^1.0.0"
+    "normalize-port": "^1.0.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "style-loader": "^0.18.1",
+    "ts-loader": "^2.1.0",
+    "webpack": "^2.6.0"
   },
   "devDependencies": {
     "@types/koa": "^2.0.39",
+    "@types/koa-static": "^2.0.22",
     "@types/node": "^7.0.22",
+    "@types/react": "^15.0.24",
+    "@types/react-dom": "^15.5.0",
+    "@types/react-redux": "^4.4.40",
+    "@types/react-router": "^4.0.9",
+    "@types/react-router-redux": "^5.0.1",
     "typescript": "^2.3.3"
   }
 }
