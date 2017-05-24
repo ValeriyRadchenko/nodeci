@@ -6,17 +6,23 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "server": "npm run build && node ./server/dist/index.js"
+    "server": "npm run build && node ./server/dist/index.js",
+    "deploy": "node deploy.js"
   },
   "author": "Valerii Radchenko",
   "license": "ISC",
   "dependencies": {
     "koa": "^2.2.0",
-    "normalize-port": "^1.0.0"
+    "koa-router": "^7.2.0",
+    "normalize-port": "^1.0.0",
+    "sqlite": "^2.8.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "@types/koa": "^2.0.39",
+    "@types/koa-router": "^7.0.22",
     "@types/node": "^7.0.22",
+    "@types/uuid": "^2.0.29",
     "typescript": "^2.3.3"
   }
 }
