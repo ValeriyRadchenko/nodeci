@@ -16,8 +16,7 @@ router.get('/project', async (ctx: any, next: any) => {
     await next();
 });
 
-// app.use(serve(path.resolve(__dirname, '..', '..', 'client', 'dist')));
-app.use(serve('./client/dist'));
+app.use(serve(path.resolve(__dirname, '..', '..', 'client', 'dist')));
 
 app.use(router.routes());
 app.use(router.allowedMethods());
