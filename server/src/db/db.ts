@@ -27,4 +27,10 @@ export class DB {
             .catch(error => console.error(error));
     }
 
+    run(...args: any[]) {
+        return this.initialize()
+            .then(() => db.run.apply(db, arguments))
+            .catch(error => console.error(error));
+    }
+
 }
