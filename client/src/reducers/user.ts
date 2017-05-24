@@ -5,11 +5,11 @@ import {
   USER_LOGOUT,
 } from '../constants'
 
-const user = combineEvents({
+const meta = combineEvents({
   [USER_LOGIN]: (state: any, { res }: any): any => res.user,
   [USER_LOGOUT]: (): null => null,
 }, null)
 
 export default combineReducers({
-  user,
+  meta,
 })
