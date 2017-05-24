@@ -1,0 +1,22 @@
+{
+  "name": "nodeci",
+  "version": "1.0.0",
+  "description": "Continuous integration NodeJS server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "server": "npm run build && node ./server/dist/index.js"
+  },
+  "author": "Valerii Radchenko",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.2.0",
+    "normalize-port": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.39",
+    "@types/node": "^7.0.22",
+    "typescript": "^2.3.3"
+  }
+}
