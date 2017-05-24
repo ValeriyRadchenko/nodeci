@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "jsx": "react"
+  },
+  "exclude": [
+    "node_modules",
+    "typings",
+    "client"
+  ]
+}
