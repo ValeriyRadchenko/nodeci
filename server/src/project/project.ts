@@ -1,13 +1,6 @@
 export class Project {
 
-    id: number;
-    name: string;
-
-    constructor(name: string, id: number = 0) {
-
-    }
-
-    save() {
+    constructor(public name: string, public userId: number, public id: number = 0) {
 
     }
 
