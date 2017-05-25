@@ -15,6 +15,7 @@ import { push } from 'react-router-redux';
 
 function * initial(token: string): any {
     // load current user meta
+    yield dispatch(setUserToken(token));
     yield dispatch(getProjectsList());
 }
 
