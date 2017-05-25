@@ -10,15 +10,26 @@ import Projects from './containers/Projects';
 import Login from './containers/Login';
 
 import NotFound from './components/NotFound';
+import AccessRoute from './components/AccessRoute';
 
 const history = syncHistoryWithStore(hashHistory, store);
+
+const loggedInCheck = (user: any) => !!user;
+const loggedOutCheck = (user: any) => !user;
 
 const routes = (
   <Provider store={store}>
     <Router history={history}>
       <Route component={Layout}>
-        <Route path='/' component={Projects} />
-        <Route path='/login' component={Login} />
+
+        <AccessRoute store={store} check={loggedInCheck} redirect='/login'>
+          <Route path='/' component={Projects} />
+        </AccessRoute>
+
+        <AccessRoute store={store} check={loggedOutCheck} redirect='/'>
+          <Route path='/login' component={Login} />
+        </AccessRoute>
+
         <Route path='*' component={NotFound} />
       </Route>
     </Router>
