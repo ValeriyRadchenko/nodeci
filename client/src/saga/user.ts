@@ -1,7 +1,8 @@
 import { takeEvery, put as dispatch } from 'redux-saga/effects';
 import { userService } from '../api';
 import {
-    setProjectsList
+    setProjectsList,
+    getProjectsList,
 } from '../actions/project';
 import {
     setUserToken,
@@ -12,8 +13,9 @@ import {
 } from '../constants';
 import { push } from 'react-router-redux';
 
-function * initial(): any {
+function * initial(token: string): any {
     // load current user meta
+    yield dispatch(getProjectsList());
 }
 
 function * userLogin(action: any): any {
@@ -22,6 +24,7 @@ function * userLogin(action: any): any {
   if (success) {
     yield dispatch(setUserToken(payload.token));
     localStorage.setItem('token', payload.token);
+    yield initial(payload.token);
     yield dispatch(push('/'));
   }
 }
@@ -32,7 +35,10 @@ function * userLogout(action: any): any {
 }
 
 export default function * userSaga() {
-    yield initial();
+    const token = localStorage.getItem('token');
+    if (token) {
+      yield initial(token);
+    }
 
     yield * [
         takeEvery(USER_LOGIN, userLogin),
