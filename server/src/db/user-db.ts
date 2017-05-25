@@ -18,6 +18,12 @@ export class UserDB extends DB {
         );
     }
 
+    async getByName(name: string) {
+        return super.get(`SELECT * FROM User WHERE name = ?`,
+            name
+        );
+    }
+
     async insert(user: User) {
         return super.run(`INSERT INTO User (name, email, password, role_id) VALUES (?, ?, ?, ?)`,
             user.name,
