@@ -3,6 +3,8 @@ import NavBar from '../components/NavBar';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { login } from '../actions/user';
+import { Button } from 'react-bootstrap';
+import { Input } from '../components/FormBootstrapComponents';
 import '../assets/styles/loginPage.scss';
 
 
@@ -11,9 +13,9 @@ const Login = ({ handleSubmit }: any) => (
     <h2>Login</h2>
 
     <form className='login-form' onSubmit={handleSubmit}>
-        <Field component='input' type='text' name='name' placeholder='Username'/>
-        <Field component='input' type='password' name='password' placeholder='Password'/>
-        <button type='submit'>Login</button>
+        <Field component={Input} type='text' name='name' placeholder='Username'/>
+        <Field component={Input} type='password' name='password' placeholder='Password'/>
+        <Button type='submit'>Login</Button>
     </form>
   </div>
 );

@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import {
   logout
 } from '../actions/user';
+import '../assets/styles/navbar.scss';
 
 interface MyProps {
   user: {
