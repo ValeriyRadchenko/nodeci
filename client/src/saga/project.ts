@@ -5,8 +5,10 @@ import {
 } from '../actions/project';
 
 function * initial(): any {
-    const projects = yield projectsService.list();
-    yield dispatch(setProjectsList(projects));
+    const { success, payload } = yield projectsService.list();
+    if (success) {
+      yield dispatch(setProjectsList(payload));
+    }
 }
 
 export default function * projectSaga() {

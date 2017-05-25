@@ -3,7 +3,9 @@ import { userService } from '../api';
 import {
     setProjectsList
 } from '../actions/project';
-
+import {
+    setUserToken
+} from '../actions/user';
 import {
   USER_LOGIN
 } from '../constants';
@@ -13,8 +15,12 @@ function * initial(): any {
 }
 
 function * userLogin(action: any): any {
-  const response = yield userService.login(action.data);
-  console.log(response);
+  const { success, payload } = yield userService.login(action.data);
+
+  if (success) {
+    yield dispatch(setUserToken(payload.token));
+    localStorage.setItem('token', payload.token);
+  }
 }
 
 export default function * userSaga() {

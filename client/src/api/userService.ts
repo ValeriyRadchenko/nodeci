@@ -9,7 +9,7 @@ class UserService extends AbstractService {
 
     login(data: object) {
         return this.post({
-            path: `/project`,
+            path: `/login`,
             body: data
         });
     }

@@ -11,7 +11,7 @@ const Login = ({ handleSubmit }: any) => (
     <h2>Login</h2>
 
     <form className='login-form' onSubmit={handleSubmit}>
-        <Field component='input' type='text' name='login' placeholder='Username'/>
+        <Field component='input' type='text' name='name' placeholder='Username'/>
         <Field component='input' type='password' name='password' placeholder='Password'/>
         <button type='submit'>Login</button>
     </form>
