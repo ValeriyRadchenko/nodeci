@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
-const { browserHistory } = require('react-router');
+const { hashHistory } = require('react-router');
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
 import reducer from './reducers';
@@ -11,7 +11,7 @@ const sagaMidelware = createSagaMiddleware();
 
 const middlewares = [
   sagaMidelware,
-  routerMiddleware(browserHistory)
+  routerMiddleware(hashHistory)
 ];
 
 if (process.env.NODE_ENV !== 'production') {

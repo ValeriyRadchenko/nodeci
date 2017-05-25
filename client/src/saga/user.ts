@@ -4,11 +4,13 @@ import {
     setProjectsList
 } from '../actions/project';
 import {
-    setUserToken
+    setUserToken,
 } from '../actions/user';
 import {
-  USER_LOGIN
+  USER_LOGIN,
+  USER_LOGOUT,
 } from '../constants';
+import { push } from 'react-router-redux';
 
 function * initial(): any {
     // load current user meta
@@ -20,7 +22,13 @@ function * userLogin(action: any): any {
   if (success) {
     yield dispatch(setUserToken(payload.token));
     localStorage.setItem('token', payload.token);
+    yield dispatch(push('/'));
   }
+}
+
+function * userLogout(action: any): any {
+  localStorage.setItem('token', '');
+  yield dispatch(push('/login'));
 }
 
 export default function * userSaga() {
@@ -28,5 +36,6 @@ export default function * userSaga() {
 
     yield * [
         takeEvery(USER_LOGIN, userLogin),
+        takeEvery(USER_LOGOUT, userLogout),
     ];
 }
