@@ -1,5 +1,6 @@
 import { DB } from './db';
 import { Project } from '../entities/project';
+import { auth } from '../auth/auth';
 
 export class ProjectDB extends DB {
 
@@ -8,12 +9,15 @@ export class ProjectDB extends DB {
     }
 
     async getAll() {
-        return super.all('SELECT * FROM Project');
+        return super.all('SELECT * FROM Project WHERE user_id = ?',
+            auth.getUserInfo().uid
+        );
     }
 
     async get(projectId: number) {
-        return super.get(`SELECT * FROM Project WHERE id = ?`,
-            projectId
+        return super.get(`SELECT * FROM Project WHERE id = ? AND user_id = ?`,
+            projectId,
+            auth.getUserInfo().uid
         );
     }
 

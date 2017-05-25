@@ -2,7 +2,7 @@ import * as Koa from 'koa';
 import * as serve from 'koa-static';
 import * as path from 'path';
 import * as bodyParser from 'koa-bodyparser';
-import { projectRouter, userRouter } from './routes';
+import { loginRouter, projectRouter, userRouter } from './routes';
 import { errorHandler } from './errors';
 
 const normalizePort = require('normalize-port');
@@ -20,6 +20,9 @@ app.use(projectRouter.allowedMethods());
 
 app.use(userRouter.routes());
 app.use(userRouter.allowedMethods());
+
+app.use(loginRouter.routes());
+app.use(loginRouter.allowedMethods());
 
 app.listen(port, () => {
     console.log(`Server listen port ${port}`);
