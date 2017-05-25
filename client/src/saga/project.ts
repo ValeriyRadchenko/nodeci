@@ -2,7 +2,7 @@ import { takeEvery, put as dispatch } from 'redux-saga/effects';
 import { projectsService } from '../api';
 import {
     setProjects
-} from '../actions/projects'
+} from '../actions/projects';
 
 function * initial(): any {
     const projects = yield projectsService.list();

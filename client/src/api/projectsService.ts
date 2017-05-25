@@ -1,5 +1,5 @@
 import AbstractService from './abstractService';
-import config from '../config'
+import config from '../config';
 
 
 class ProjectsService extends AbstractService {

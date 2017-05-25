@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 interface MyProps {
   user: {
     name: string
-  }
+  };
 }
 interface MyState {}
 
@@ -21,7 +21,7 @@ class MainNavbar extends React.Component<MyProps, MyState> {
     const { user } = this.props;
 
     return (
-      <Navbar inverse className="main-navbar">
+      <Navbar inverse className='main-navbar'>
         <Navbar.Header>
           <Navbar.Brand>
             NodeCI
@@ -36,7 +36,7 @@ class MainNavbar extends React.Component<MyProps, MyState> {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    )
+    );
   }
 }
 

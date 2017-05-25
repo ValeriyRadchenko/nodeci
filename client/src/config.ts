@@ -3,4 +3,4 @@ export default {
         localHost: 'localhost',
         localPort: 3000
     }
-}
+};

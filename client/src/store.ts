@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 const { browserHistory } = require('react-router');
 import createSagaMiddleware from 'redux-saga';
@@ -12,7 +12,7 @@ const sagaMidelware = createSagaMiddleware();
 const middlewares = [
   sagaMidelware,
   routerMiddleware(browserHistory)
-]
+];
 
 if (process.env.NODE_ENV !== 'production') {
   const logger = createLogger({ collapsed: true });
@@ -25,7 +25,7 @@ const store = createStore(
   compose(
     applyMiddleware(...middlewares)
   )
-)
+);
 
 sagaMidelware.run(rootSaga);
 
