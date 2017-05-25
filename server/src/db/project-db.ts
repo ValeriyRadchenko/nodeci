@@ -1,5 +1,5 @@
 import { DB } from './db';
-import { Project } from '../project/project';
+import { Project } from '../entities/project';
 
 export class ProjectDB extends DB {
 
