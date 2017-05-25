@@ -33,6 +33,6 @@ export class Commander {
 }
 
 export interface ICommanderExecuteResult {
-    stdout: string,
-    stderr: string
+    stdout: string;
+    stderr: string;
 }
