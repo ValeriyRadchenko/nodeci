@@ -7,5 +7,5 @@ export function combineEvents(reducers: any, initialState: any): any {
     } else {
       return state;
     }
-  }
+  };
 }

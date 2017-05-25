@@ -1,18 +1,16 @@
 import { takeEvery, put as dispatch } from 'redux-saga/effects';
 import { projectsService } from '../api';
 import {
-    setProjects
-} from '../actions/projects'
+    setProjectsList
+} from '../actions/project';
 
 function * initial(): any {
-    const projects = yield projectsService.list();
-    yield dispatch(setProjects(projects));
+    const { success, payload } = yield projectsService.list();
+    if (success) {
+      yield dispatch(setProjectsList(payload));
+    }
 }
 
-export default function * orderSaga() {
+export default function * projectSaga() {
     yield initial();
-
-    // yield * [
-    //     takeEvery(ORDER_START, startOrder),
-    // ]
 }

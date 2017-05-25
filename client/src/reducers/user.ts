@@ -3,13 +3,13 @@ import { combineEvents } from '../utils/combineEvents';
 import {
   USER_LOGIN,
   USER_LOGOUT,
-} from '../constants'
+  USER_SET_TOKEN,
+} from '../constants';
 
-const meta = combineEvents({
-  [USER_LOGIN]: (state: any, { res }: any): any => res.user,
-  [USER_LOGOUT]: (): null => null,
-}, null)
+const token = combineEvents({
+  [USER_SET_TOKEN]: (state: any, action: any): string => action.token,
+}, null);
 
 export default combineReducers({
-  meta,
-})
+  token,
+});
