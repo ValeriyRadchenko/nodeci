@@ -24,8 +24,8 @@ module.exports = {
                 }]
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+              test: /\.(scss|sass|css)$/,
+              loader: 'style-loader!css-loader!sass-loader?cacheDirectory'
             }
         ]
     },
@@ -35,7 +35,7 @@ module.exports = {
             inject: 'body'
         })
     ],
-    
+
 };
 
 if (isProduction) {
