@@ -8,8 +8,10 @@ export class UserDB extends DB {
         super();
     }
 
-    async getAll() {
-        return super.all('SELECT * FROM User');
+    async getAll(userId?: number) {
+        return super.all('SELECT * FROM User WHERE id = ?',
+            userId
+        );
     }
 
     async get(userId: number) {
