@@ -1,6 +1,5 @@
 import { DB } from './db';
 import { Project } from '../entities/project';
-import { auth } from '../auth/auth';
 
 export class ProjectDB extends DB {
 
@@ -15,7 +14,7 @@ export class ProjectDB extends DB {
     }
 
     async get(projectId: number, userId: number) {
-        return super.get(`SELECT * FROM Project WHERE id = ? AND user_id = ?`,
+        return super.get(`SELECT * FROM Project JOIN ProjectDetail ON Project.id = ProjectDetail.project_id AND Project.id = ? AND Project.user_id = ?`,
             projectId,
             userId
         );
