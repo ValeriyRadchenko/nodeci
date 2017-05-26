@@ -20,8 +20,8 @@ export class Commander {
                 }
             });
 
-            this.currentProcess.stdout.pipe(process.stdout);
-            this.currentProcess.stderr.pipe(process.stderr);
+            // this.currentProcess.stdout.pipe(process.stdout);
+            // this.currentProcess.stderr.pipe(process.stderr);
         });
     }
 
