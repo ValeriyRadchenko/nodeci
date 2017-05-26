@@ -8,7 +8,8 @@ import {
 
 const token = combineEvents({
   [USER_SET_TOKEN]: (state: any, action: any): string => action.token,
-}, null);
+  [USER_LOGOUT]: (): string => '',
+}, '');
 
 export default combineReducers({
   token,
