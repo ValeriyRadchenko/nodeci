@@ -3,14 +3,20 @@ import { projectsService } from '../api';
 import {
     setProjectsList
 } from '../actions/project';
+import {
+  PROJECT_GET_LIST,
+} from '../constants';
 
-function * initial(): any {
+function * getProjectsList(): any {
     const { success, payload } = yield projectsService.list();
+
     if (success) {
       yield dispatch(setProjectsList(payload));
     }
 }
 
 export default function * projectSaga() {
-    yield initial();
+    yield * [
+        takeEvery(PROJECT_GET_LIST, getProjectsList),
+    ];
 }
