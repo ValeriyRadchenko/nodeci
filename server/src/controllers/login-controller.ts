@@ -45,7 +45,8 @@ export const loginController = new LoginController();
 export async function jwt(ctx: Context, next: any) {
     let token = ctx.headers.authorization.split('Bearer ')[1];
     try {
-        await auth.verify(token);
+        let decoded = await auth.verify(token);
+        ctx.params.userInfo = decoded;
         await next();
     } catch (error) {
         throw new UnauthorizedError(error.message);

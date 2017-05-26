@@ -8,7 +8,7 @@ const projectDB = new ProjectDB();
 class ProjectController {
     async getAll(ctx: Context, next: any) {
         try {
-            ctx.body = await projectDB.getAll() || [];
+            ctx.body = await projectDB.getAll(ctx.params.userInfo.uid) || [];
         } catch (error) {
             throw new BadRequestError(error.message);
         } finally {
@@ -18,7 +18,7 @@ class ProjectController {
 
     async get(ctx: Context, next: any) {
         try {
-            ctx.body = await projectDB.get(ctx.params.id) || {};
+            ctx.body = await projectDB.get(ctx.params.id, ctx.params.userInfo.uid) || {};
         } catch (error) {
             throw new BadRequestError(error.message);
         } finally {

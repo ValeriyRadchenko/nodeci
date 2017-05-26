@@ -8,16 +8,16 @@ export class ProjectDB extends DB {
         super();
     }
 
-    async getAll() {
+    async getAll(userId: number) {
         return super.all('SELECT * FROM Project WHERE user_id = ?',
-            auth.getUserInfo().uid
+            userId
         );
     }
 
-    async get(projectId: number) {
+    async get(projectId: number, userId: number) {
         return super.get(`SELECT * FROM Project WHERE id = ? AND user_id = ?`,
             projectId,
-            auth.getUserInfo().uid
+            userId
         );
     }
 

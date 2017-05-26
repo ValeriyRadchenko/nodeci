@@ -8,7 +8,7 @@ const userDB = new UserDB();
 class UserController {
     async getAll(ctx: Context, next: any) {
         try {
-            ctx.body = await userDB.getAll();
+            ctx.body = await userDB.getAll(ctx.params.userInfo.uid);
         } catch (error) {
             throw new BadRequestError(error.message);
         } finally {

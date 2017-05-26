@@ -5,7 +5,6 @@ import { UnauthorizedError } from '../errors/errors';
 class Auth {
 
     private secret: string;
-    private userInfo: any;
 
     constructor() {
         this.secret = v4();
@@ -35,15 +34,11 @@ class Auth {
                     reject(new UnauthorizedError());
                 }
 
-                this.userInfo = decoded;
                 resolve(decoded);
             });
         });
     }
 
-    getUserInfo() {
-        return this.userInfo;
-    }
 }
 
 
